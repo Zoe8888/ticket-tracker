@@ -60,16 +60,16 @@ class TicketSales:
         # ValueError indicates that an error has occurred
         try:
             int(self.cellentry.get())
+            # If cell number is > or < then 10 digits it will raise an error
             if len(self.cellentry.get()) > 10 or len(self.cellentry.get()) < 10:
-                # If cell number is > or < then 10 digits it will raise an error
                 raise ValueError
 
-            elif "Select Ticket" == self.variable.get():
-                # If the type of ticket is not selected it will raise an error
+            # If the type of ticket is not selected it will raise an error
+            elif self.variable.get() == "Select Ticket":
                 raise ValueError
 
+            # If amount of tickets = 0 it will raise an error
             elif ticket == 0:
-                # If amount of tickets = 0 it will raise an error
                 raise ValueError
 
             # Calculation of soccer ticket(s)
