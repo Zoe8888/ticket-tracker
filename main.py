@@ -7,7 +7,7 @@ class TicketSales:
     def __init__(self, parent):
         self.parent = parent
         self.parent.title("Ticket Tracker")
-        self.parent.geometry("700x500")
+        self.parent.geometry("600x500")
         self.parent.resizable("False", "False")
         self.parent.config(bg="#bd615b")
 
@@ -42,7 +42,7 @@ class TicketSales:
 
         # Frame created & positioned
         self.frame = Frame(self.parent, width=400, height=150)
-        self.frame.place(relx=0.2, rely=0.6)
+        self.frame.place(relx=0.1, rely=0.6)
 
         # Receipt labels & entry points created & positioned
         self.amount = Label(self.frame, text="")
