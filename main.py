@@ -114,7 +114,7 @@ class TicketSales:
         self.num_spinbox.insert(0, 0)
         self.amount.config(text="")
         self.reserved.config(text="")
-        self.lblcell.config(text="")
+        self.cell.config(text="")
 
 
 root = Tk()
