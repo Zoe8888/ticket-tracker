@@ -107,6 +107,7 @@ class TicketSales:
             cell_txt = "was done by {}".format(self.cellentry.get())
             self.cell.config(text=cell_txt)
 
+        # If an invalid combination is entered an error will be raised
         except ValueError:
             messagebox.showerror(messagebox="Combination is invalid")
 
