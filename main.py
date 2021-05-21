@@ -1,47 +1,52 @@
 from tkinter import *
 from tkinter import messagebox
 
+root = Tk()
+# Creating a title for the program
+root.title("Ticket Tracker")
+# Setting the dimensions
+root.geometry("600x500")
+# Ensuring the size of the program cannot be resized
+root.resizable("False", "False")
+# Setting a background color
+root.config(bg="#bd615b")
+
 
 # Window initialized
 class TicketSales:
-    def __init__(self, parent):
-        self.parent = parent
-        self.parent.title("Ticket Tracker")
-        self.parent.geometry("600x500")
-        self.parent.resizable("False", "False")
-        self.parent.config(bg="#bd615b")
-
+    def __init__(self, window):
         # Cell label & entry point created & positioned
-        self.lblcell = Label(self.parent, text="Please enter your cell number:")
+        self.window = window
+        self.lblcell = Label(self.window, text="Please enter your cell number:")
         self.lblcell.place(relx=0.1, rely=0.1)
-        self.cellentry = Entry(self.parent)
+        self.cellentry = Entry(self.window)
         self.cellentry.place(relx=0.5, rely=0.1)
 
         # Ticket label created & positioned
-        self.lblticket = Label(self.parent, text="Select ticket category:")
+        self.lblticket = Label(self.window, text="Select ticket category:")
         self.lblticket.place(relx=0.1, rely=0.2)
         # Ticket option menu created & positioned
         self.variable = StringVar()
         self.variable.set("Select Ticket")
         self.options = ["Soccer", "Movie", "Theater"]
-        self.ticket_menu = OptionMenu(self.parent, self.variable, *self.options)
+        self.ticket_menu = OptionMenu(self.window, self.variable, *self.options)
         self.ticket_menu.place(relx=0.5, rely=0.2)
 
         # Number of tickets label & entry point created & positioned
-        self.lblnum = Label(self.parent, text="Number of tickets bought:")
+        self.lblnum = Label(self.window, text="Number of tickets bought:")
         self.lblnum.place(relx=0.1, rely=0.3)
-        self.num_spinbox = Spinbox(self.parent, width=15, bg="white")
+        self.num_spinbox = Spinbox(self.window, width=15, bg="white")
         self.num_spinbox.place(relx=0.5, rely=0.3)
 
         # Calculate button created & positioned
-        self.calc_btn = Button(self.parent, text="Calculate Button", command=self.calc_prepayment)
+        self.calc_btn = Button(self.window, text="Calculate Button", command=self.calc_prepayment)
         self.calc_btn.place(relx=0.1, rely=0.4)
         # Clear Entries button created & positioned
-        self.clear_btn = Button(self.parent, text="Clear Entries", command=self.clear)
+        self.clear_btn = Button(self.window, text="Clear Entries", command=self.clear)
         self.clear_btn.place(relx=0.5, rely=0.4)
 
         # Frame created & positioned
-        self.frame = Frame(self.parent, width=400, height=150)
+        self.frame = Frame(self.window, width=400, height=150)
         self.frame.place(relx=0.1, rely=0.6)
 
         # Receipt labels & entry points created & positioned
@@ -117,6 +122,5 @@ class TicketSales:
         self.cell.config(text="")
 
 
-root = Tk()
 TicketSales(root)
 root.mainloop()
